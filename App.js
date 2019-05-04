@@ -41,12 +41,14 @@ export default class App extends React.Component {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         var user = firebase.auth().currentUser;
-        var name, email, photoUrl, uid, emailVerified;
+        let name, email, photoUrl, uid, emailVerified;
+
+        // const usersRef = db.collection("users").doc(user.uid);
 
         if (user != null) {
-          name = user.displayName;
+          displayName = user.displayName;
           email = user.email;
-          phoneNumber = user.phoneNumber
+          phoneNumber = user.phoneNumber;
           photoUrl = user.photoURL;
           emailVerified = user.emailVerified;
           uid = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
@@ -54,7 +56,43 @@ export default class App extends React.Component {
           // you have one. Use User.getToken() instead.
         }
         // User is signed in.
-        console.log(user.uid, "From user");
+        // console.log(user.uid, "From user");
+
+        var userRef = db.collection("users/").doc(uid);
+
+        var getDoc = userRef
+          .get()
+          .then(doc => {
+            if (!doc.exists) {
+              console.log("No such document!");
+
+              var data = {
+                displayName: "Shawn",
+                phoneNumber: "914-323-3456",
+                email,
+                photoUrl:
+                  "https://media.licdn.com/dms/image/C5603AQF7ZNPlmP0waQ/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=xtZ1wFVvHZ64h9QrsfLjAbWZejRu0uGOXTwNldEbHZI",
+                uid
+              };
+              var setDoc = db
+                .collection("users")
+                .doc(uid)
+                .set(data);
+
+              var setWithOptions = setDoc.set(
+                {
+                  capital: true
+                },
+                { merge: true }
+              );
+              console.log(uid, "Document added");
+            } else {
+              console.log("Document data:", doc.data());
+            }
+          })
+          .catch(err => {
+            console.log("Error getting document", err);
+          });
 
         // var data = {
         //   displayName: name,
@@ -63,23 +101,9 @@ export default class App extends React.Component {
         //   photoUrl,
         //   uid
         // };
-        var data = {
-          displayName: "Shawn",
-          phoneNumber: "914-323-3456",
-          email,
-          photoUrl: "https://media.licdn.com/dms/image/C5603AQF7ZNPlmP0waQ/profile-displayphoto-shrink_200_200/0?e=1562198400&v=beta&t=xtZ1wFVvHZ64h9QrsfLjAbWZejRu0uGOXTwNldEbHZI",
-          uid
-        };
-
-        var setDoc = db.collection('users').doc(uid).set(data);
-        console.log(uid, "Document added")
-
-        var setWithOptions = setDoc.set({
-          capital: true
-        }, {merge: true});
-
       } else {
         // No user is signed in.
+        return;
       }
     });
   };

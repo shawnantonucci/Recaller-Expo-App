@@ -44,7 +44,7 @@ export default class LoginScreen extends React.Component {
 
   _syncUserWithStateAsync = async () => {
     const user = await GoogleSignIn.signInSilentlyAsync();
-    console.log(user, "Google Signin")
+    // console.log(user, "Google Signin")
     this.setState({ user });
   };
 
