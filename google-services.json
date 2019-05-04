@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "448806748779",
+    "firebase_url": "https://recaller-14a1f.firebaseio.com",
+    "project_id": "recaller-14a1f",
+    "storage_bucket": "recaller-14a1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448806748779:android:0416efe18b87dd9a",
+        "android_client_info": {
+          "package_name": "com.lambda.recaller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448806748779-mldp0sim81htt9oapau99r1647m26278.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7MSjRvti60iaOo_K8QipGsUnKF2ZilWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448806748779-mldp0sim81htt9oapau99r1647m26278.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "448806748779-0ahjm717jvdihr4t6vailhibgutvq7p6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lambda.recaller"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

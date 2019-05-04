@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "recaller",
+    "slug": "rn-recaller",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "scheme": "recaller",
+    "platforms": ["ios", "android"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "com.lambda.recaller",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "<com.googleusercontent.apps.448806748779-0ahjm717jvdihr4t6vailhibgutvq7p6>"
+        }
+      }
+    },
+    "android": {
+        "package": "com.lambda.recaller",
+        "googleServicesFile": "./google-services.json",
+        "config": {
+          "googleSignIn": {
+              "certificateHash": "BE:1A:3F:0F:B7:3A:63:45:53:71:01:ED:28:D1:C7:01:96:DF:E5:1D"
+          }
+      }
+    }
+  }
+}
